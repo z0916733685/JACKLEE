@@ -47,11 +47,11 @@ class ModelConfig:
     # 熱身設定
     WARMUP_EPOCHS = 50
     
-    font_path = "Fonts"
+    font_path = r"F:\AI\MyProject\python\test\Fonts"
     
     # 權重管理
     WEIGHT_PATHS = {
-        "best": "model_best.pth",
+        "best": r"F:\AI\MyProject\python\test\model_best.pth",
         "medium": "model_medium_distort.pth",
         "base": "model_base_structure.pth"
     }
@@ -67,7 +67,7 @@ class ModelConfig:
             print(f">>> [硬體優化] CUDNN Benchmark: {cls.CUDNN_BENCHMARK}")
             
     # 新增輸出資料夾路徑
-    OUTPUT_DIR = "training_outputs"
+    OUTPUT_DIR = r"F:\AI\MyProject\python\test\training_outputs"
             
     @classmethod
     def prepare_folders(cls):
@@ -1757,7 +1757,7 @@ def main():
 
     except KeyboardInterrupt:
         print("\n>>> [手動停止] 正在保存當前進度...")
-        torch.save(model.state_dict(), "model_best.pth")
+        torch.save(model.state_dict(), r"F:\AI\MyProject\python\test\model_best.pth")
     
     finally:
         # --- 最終動作 ---
