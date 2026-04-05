@@ -1,0 +1,282 @@
+import pyautogui, cv2, sys, os
+from time import sleep, time
+import keyboard
+from IPython.display import clear_output
+import multiprocessing, threading
+import cv2
+import selenium
+
+
+class doit:
+    def __init__(self):
+        do1 = threading.Thread(target=self.realdo)
+        do2 = threading.Thread(target=self.goout)
+        do1.start()
+        do2.start()
+
+    def realdo(self):
+        while True:
+            self.one()
+
+            self.two()
+
+            self.three()
+
+            self.four()
+
+            self.five()
+
+            self.six()
+
+            self.seven()
+
+            self.eight()
+
+    def one(self):
+        k = 0
+        while True:
+            k = k + 1
+            try:
+                (x1, y1) = pyautogui.locateCenterOnScreen("1.png", confidence=0.9)
+            except:
+                try:
+                    (x7, y7) = pyautogui.locateCenterOnScreen("7.png", confidence=0.9)
+                except:
+                    pass
+                else:
+                    pyautogui.click(x=x7, y=y7, clicks=1, button="left")
+            else:
+                pyautogui.click(x=x1, y=y1, clicks=1, button="left")
+                break
+            if k >= 1000:
+                self.reload()
+
+    def two(self):
+        k = 0
+        while True:
+            k = k + 1
+            try:
+                (xin, yin) = pyautogui.locateCenterOnScreen("in.png", confidence=0.7)
+            except:
+                pass
+            else:
+                break
+            if k >= 1000:
+                self.reload()
+
+    def three(self):
+        k = 0
+        while True:
+            k = k + 1
+            try:
+                (x2, y2) = pyautogui.locateCenterOnScreen("2.png", confidence=0.9)
+            except:
+                pass
+            else:
+                pyautogui.click(x=x2, y=y2, clicks=1, button="left")
+                try:
+                    (x3, y3) = pyautogui.locateCenterOnScreen("3.png", confidence=0.9)
+                except:
+                    pass
+                else:
+                    break
+            if k >= 1000:
+                self.reload()
+
+    def four(self):
+        k = 0
+        while True:
+            k = k + 1
+            try:
+                (x3, y3) = pyautogui.locateCenterOnScreen("3.png", confidence=0.9)
+            except:
+                pass
+            else:
+                pyautogui.click(x=x3, y=y3, clicks=1, button="left")
+                break
+            if k >= 1000:
+                self.reload()
+
+    def five(self):
+        k = 0
+        while True:
+            k = k + 1
+            try:
+                (x4_1, y4_1) = pyautogui.locateCenterOnScreen("4.png", confidence=0.9)
+            except:
+                pass
+            else:
+                sleep(0.2)
+                pyautogui.click(x=x4_1, y=y4_1, clicks=1, button="left")
+                break
+            if k >= 1000:
+                self.reload()
+
+    def six(self):
+        k = 0
+        while True:
+            k = k + 1
+            try:
+                sleep(0.5)
+                (xreadyno, yreadyno) = pyautogui.locateCenterOnScreen(
+                    "readyno.png", confidence=0.8
+                )
+            except:
+                pyautogui.hotkey("alt", "left")
+                break
+            else:
+                try:
+                    (xready2_1, yready2_1) = pyautogui.locateCenterOnScreen(
+                        "ready2.png", confidence=0.7
+                    )
+                except:
+                    pass
+                else:
+                    sleep(0.5)
+                    pyautogui.hotkey("alt", "left")
+                    break
+            if k >= 1000:
+                self.reload()
+
+    def seven(self):
+        k = 0
+        l = 0
+        while True:
+            k = k + 1
+            try:
+                (x6, y6) = pyautogui.locateCenterOnScreen("6.png", confidence=0.95)
+            except:
+                try:
+                    (x4_2, y4_2) = pyautogui.locateCenterOnScreen(
+                        "4.png", confidence=0.9
+                    )
+                except:
+                    pass
+                else:
+                    while True:
+                        l = l + 1
+                        try:
+                            (x4_3, y4_3) = pyautogui.locateCenterOnScreen(
+                                "4.png", confidence=0.9
+                            )
+                        except:
+                            try:
+                                (xready1_2, yready1_2) = pyautogui.locateCenterOnScreen(
+                                    "ready1.png", confidence=0.8
+                                )
+                            except:
+                                try:
+                                    (xready2_2, yready2_2) = (
+                                        pyautogui.locateCenterOnScreen(
+                                            "ready2.png", confidence=0.8
+                                        )
+                                    )
+                                except:
+                                    pass
+                                else:
+                                    pyautogui.click(
+                                        x=xready2_2,
+                                        y=yready2_2,
+                                        clicks=1,
+                                        button="left",
+                                    )
+                                    sleep(0.4)
+                                    pyautogui.hotkey("alt", "left")
+                                    break
+                            else:
+                                pyautogui.click(
+                                    x=xready1_2,
+                                    y=yready1_2,
+                                    clicks=1,
+                                    button="left",
+                                )
+                                sleep(0.4)
+                                pyautogui.hotkey("alt", "left")
+                                break
+                        else:
+                            pyautogui.click(x=x4_2, y=y4_2, clicks=1, button="left")
+                            sleep(0.5)
+                        if l > 1000:
+                            self.reload()
+            else:
+                pyautogui.click(x=x6, y=y6, clicks=1, button="left")
+                break
+            if k >= 1000:
+                self.reload()
+
+    def eight(self):
+        k = 0
+        while True:
+            k = k + 1
+            try:
+                sleep(0.5)
+                (x7, y7) = pyautogui.locateCenterOnScreen("7.png", confidence=0.9)
+            except:
+                self.rankup()
+                self.classup()
+                self.OK()
+                self.close()
+                pass
+            else:
+                pyautogui.click(x=x7, y=y7, clicks=1, button="left")
+                break
+            if k >= 1000:
+                self.reload()
+
+    def nine(self):
+        1
+
+    def goout(self):
+        while True:
+            if keyboard.is_pressed("5"):
+                os._exit(0)
+
+    def close(self):
+        try:
+            (xcl, ycl) = pyautogui.locateCenterOnScreen("close.png", confidence=0.8)
+        except:
+            pass
+        else:
+            pyautogui.click(x=xcl, y=ycl, clicks=1, button="left")
+
+    def OK(self):
+        try:
+            (xrankok1, yrankok1) = pyautogui.locateCenterOnScreen(
+                "okok.png", confidence=0.9
+            )
+        except:
+            pass
+        else:
+            pyautogui.click(x=xrankok1, y=yrankok1, clicks=1, button="left")
+            xrankok1 = 0
+            yrankok1 = 0
+
+    def classup(self):
+        try:
+            (xclassup1, yclassup1) = pyautogui.locateCenterOnScreen(
+                "classup7.png", confidence=0.7
+            )
+        except:
+            pass
+        else:
+            pyautogui.click(x=xclassup1, y=yclassup1, clicks=1, button="left")
+
+    def rankup(self):
+        try:
+            (xrankup, yrankup) = pyautogui.locateCenterOnScreen(
+                "rankup.png", confidence=0.8
+            )
+            (xrankok, yrankok) = pyautogui.locateCenterOnScreen(
+                "rankok.png", confidence=0.8
+            )
+        except:
+            pass
+        else:
+            pyautogui.click(x=xrankok, y=yrankok, clicks=1, button="left")
+
+    def reload(self):
+        os._exit(0)
+
+
+if __name__ == "__main__":
+    doit()
