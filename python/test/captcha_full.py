@@ -1320,7 +1320,7 @@ class OCRModel(nn.Module):
 # PART 5: TRAINER (ULTRA EXPANDED)
 # ================================================================
 
-from torch.amp import autocast
+from torch.amp.autocast_mode import autocast
 from torch.cuda.amp import GradScaler
 
 # ================================================================
@@ -1369,7 +1369,7 @@ class Trainer:
 
         try:
             # 新版 PyTorch
-            from torch.amp import GradScaler
+            from torch.amp.grad_scaler import GradScaler
             self.scaler = GradScaler(
                 device="cuda",
                 enabled=torch.cuda.is_available()
