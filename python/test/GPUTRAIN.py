@@ -47,11 +47,11 @@ class ModelConfig:
     # 熱身設定
     WARMUP_EPOCHS = 50
     
-    font_path = r"F:\AI\MyProject\python\test\Fonts"
+    font_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Fonts")
     
     # 權重管理
     WEIGHT_PATHS = {
-        "best": r"F:\AI\MyProject\python\test\model_best.pth",
+        "best": os.path.join(os.path.dirname(os.path.abspath(__file__)), "model_best.pth"),
         "medium": "model_medium_distort.pth",
         "base": "model_base_structure.pth"
     }
@@ -67,7 +67,7 @@ class ModelConfig:
             print(f">>> [硬體優化] CUDNN Benchmark: {cls.CUDNN_BENCHMARK}")
             
     # 新增輸出資料夾路徑
-    OUTPUT_DIR = r"F:\AI\MyProject\python\test\training_outputs"
+    OUTPUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "training_outputs")
             
     @classmethod
     def prepare_folders(cls):
@@ -458,7 +458,7 @@ class StandardCaptchaGenerator:
         pool = []
         if not os.path.exists(font_dir):
             print(f">>> [警告] 未找到字型資料夾 {font_dir}，使用系統預設。")
-            return [ImageFont.load_default()]
+            return []
         
         font_files = [
             os.path.join(font_dir, f)
